@@ -23,14 +23,16 @@ describe("Game of Life App", () => {
     // Find the grid cell by aria-label
     const anyCell = screen.getByLabelText("Cell 0,0");
     expect(anyCell).toBeInTheDocument();
-    // Before click: cell is 'dead' (light background)
-    const getComputedBg = (el) => window.getComputedStyle(el).backgroundColor;
-    const deadColor = getComputedBg(anyCell);
+    // Before click: cell is 'dead'
+    expect(anyCell).toHaveClass("dead");
+    expect(anyCell).toHaveAttribute("data-state", "dead");
+
     // Click to toggle alive
     fireEvent.click(anyCell);
-    // After click: color should change from initial (use --text-secondary)
-    const liveColor = getComputedBg(anyCell);
-    expect(liveColor).not.toBe(deadColor);
+
+    // After click: cell should be 'alive'
+    expect(anyCell).toHaveClass("alive");
+    expect(anyCell).toHaveAttribute("data-state", "alive");
   });
 
   test("advance simulation generation on Step", () => {
@@ -60,12 +62,15 @@ describe("Game of Life App", () => {
     // Set a cell alive:
     const cell = screen.getByLabelText("Cell 0,0");
     fireEvent.click(cell);
-    const getComputedBg = (el) => window.getComputedStyle(el).backgroundColor;
-    const liveColor = getComputedBg(cell);
+
+    // Confirm cell is alive
+    expect(cell).toHaveClass("alive");
+    expect(cell).toHaveAttribute("data-state", "alive");
+
     fireEvent.click(screen.getByText("Reset"));
-    // After reset, background returns to 'dead' state (should not match live color)
-    const afterResetColor = getComputedBg(cell);
-    expect(afterResetColor).not.toBe(liveColor);
+    // After reset, cell returns to 'dead' state
+    expect(cell).toHaveClass("dead");
+    expect(cell).toHaveAttribute("data-state", "dead");
   });
 
   test("can change number of rows and columns", () => {

@@ -313,6 +313,8 @@ function App() {
                   {row.map((cell, c) =>
                     <td
                       key={c}
+                      className={cell ? "alive" : "dead"}
+                      data-state={cell ? "alive" : "dead"}
                       style={{
                         width: cellSize,
                         height: cellSize,
