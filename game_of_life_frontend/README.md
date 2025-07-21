@@ -1,6 +1,43 @@
-# Lightweight React Template for KAVIA
+# Conway's Game of Life React App
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+This project is an interactive, modern, responsive React application for Conway's Game of Life.
+
+## Features
+
+- Interactive main grid: Click to toggle cells, place user patterns visually.
+- Simulation controls: Start, Pause, Reset, Single Step.
+- Adjustable grid size: Choose number of rows/columns (10x10 to 80x60).
+- Pattern tool: Place classic Game of Life patterns (Glider, Beacon, etc) anywhere with one click.
+- Responsive design: Works great on desktop and mobile.
+- Modern, minimalistic dark/light themes.
+
+## Getting Started
+
+In the project directory, you can run:
+
+### `npm start`
+
+Runs the app in development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+### `npm test`
+
+Launches the test runner for app functionality and interactions.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.
+
+## UI/Usage
+
+- Use the **Start/Pause** button to run and pause the simulation.
+- Use **Step** to advance a single generation (when paused).
+- Click the grid to toggle cells alive/dead, or use the patterns toolbar to select and place a predefined pattern.
+- Use the grid size controls below the simulation controls to adjust grid dimensions.
+- Use the theme toggle in the top-right for light or dark mode.
+
+For learning, read [React documentation](https://reactjs.org/).
+
 
 ## Features
 
